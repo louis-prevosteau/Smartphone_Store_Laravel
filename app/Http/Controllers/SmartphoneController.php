@@ -2,13 +2,113 @@
 
 namespace App\Http\Controllers;
 
-use App\Smartphone;
 use Illuminate\Http\Request;
+use App\Smartphone;
 
 class SmartphoneController extends Controller
 {
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         $smartphones = Smartphone::all();
-        return view('index',['smartphones' => $smartphones]);
+        return view('smartphones.index', ['smartphones' => $smartphones]);   
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('smartphones.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $this->validate(
+            $request,
+            [
+                'nom' => 'required',
+                'taille' => 'required',
+                'type_réseau' => 'required',
+                'système' => 'required',
+                'connectique' => 'required',
+                'autonomie' => 'required',
+                'caractéristique' => 'required',
+                'prix' => 'required'
+            ]
+        );
+
+        $smartphone = new Smartphone;
+        $smartphone->nom = $request->nom;
+        $smartphone->taille = $request->taille;
+        $smartphone->type_réseau = $request->type_réseau;
+        $smartphone->système = $request->système;
+        $smartphone->connectique = $request->connectique;
+        $smartphone->autonomie = $request->autonomie;
+        $smartphone->caractéristique = $request->caractéristique;
+        $smartphone->prix = $request->prix;
+
+        $smartphone->save();
+
+        return redirect('/smartphones');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Request $request, $id)
+    {
+        $action = $request->query('action','show');
+        $smartphone = Smartphone::find($id);
+        return view('smartphones.show', ['smartphone' => $smartphone, 'action' => $action]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

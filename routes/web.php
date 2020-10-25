@@ -1,5 +1,7 @@
 <?php
 
+use App\Smartphone;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/smartphones', 'SmartphoneController@index')->name('smartphone.index');
+Route::resource('smartphones', 'SmartphoneController');
+Route::prefix('smartphones')->group(function (){
+    Route::get('/smartphones', 'SmartphoneController@index')->name('smartphones.index');
+    Route::get('/smartphones/{id}?action=show', 'SmartphoneController@show');
+});

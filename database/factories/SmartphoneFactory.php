@@ -5,7 +5,7 @@ namespace Database\Factories;
 use App\Smartphone;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->definition(Smartphone::class, function (Faker $faker){
+$factory->define(Smartphone::class, function (Faker $faker){
     return [
         'nom' => $faker->name,
         'taille' => $faker->randomElement(['30,41cm', '25cm', '14,7cm']),
