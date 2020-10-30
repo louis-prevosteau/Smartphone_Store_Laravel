@@ -1,19 +1,26 @@
 <html>
-<head>
-    <title>Liste des smartphones</title>
-</head>
-<body>
-<h2>La liste des smartphones</h2>
+    <head>
+        <title>Liste des smartphones</title>
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/apple-store.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        @include('navbar')
+        <h2>La liste des produits</h2>
 
-@if(!empty($smartphones))
-    <ul>
-        @foreach($smartphones as $smartphone)
-            <li>{{$smartphone->id}} {{$smartphone->nom}} {{$smartphone->taille}} {{$smartphone->type_réseau}} {{$smartphone->système}} {{$smartphone->connectique}} {{$smartphone->autonomie}} {{$smartphone->caractéristique}} {{$smartphone->prix}} Euros <a href="{{route('smartphones.show',$smartphone->id)}}">Voir produit</a></li>
-        @endforeach
-    </ul>
-@else
-    <h3>aucun smartphone</h3>
-@endif
-    <button><a href="{{route('smartphones.create')}}">Ajouter un produit</a></button>
-</body>
+        @if(!empty($smartphones))
+                @foreach($smartphones as $smartphone)
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{{ route('smartphones.show', $smartphone->id) }}">{{ $smartphone->nom }}</a></h5>
+                            <p class="card-text">{{ $smartphone->caractéristique }}</p>
+                            <h4>{{ $smartphone-> prix }} €</h4>
+                        </div>
+                    </div>
+                @endforeach
+        @else
+            <h3>aucun smartphone</h3>
+        @endif
+        @include('footer')
+    </body>
 </html>

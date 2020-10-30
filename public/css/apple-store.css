@@ -1,0 +1,11 @@
+body{
+    background-color: rgb(226, 224, 224);
+}
+
+footer{
+    padding-bottom: 6px;
+    height: 15%;
+    background-color: rgb(47, 47, 47);
+    color: aliceblue;
+    text-align: center;
+}

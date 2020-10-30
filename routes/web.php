@@ -18,7 +18,3 @@ Route::get('/', function () {
 });
 
 Route::resource('smartphones', 'SmartphoneController');
-Route::prefix('smartphones')->group(function (){
-    Route::get('/smartphones', 'SmartphoneController@index')->name('smartphones.index');
-    Route::get('/smartphones/{id}?action=show', 'SmartphoneController@show');
-});

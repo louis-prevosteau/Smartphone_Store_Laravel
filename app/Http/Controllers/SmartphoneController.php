@@ -86,7 +86,8 @@ class SmartphoneController extends Controller
      */
     public function edit($id)
     {
-        //
+        $smartphone= Smartphone::find($id);
+        return view('smartphones.edit', ['smartphone' => $smartphone]);
     }
 
     /**
@@ -98,7 +99,33 @@ class SmartphoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $smartphone = Smartphone::find($id);
+        $this->validate(
+            $request,
+            [
+                'nom' => 'required',
+                'taille' => 'required',
+                'type_réseau' => 'required',
+                'système' => 'required',
+                'connectique' => 'required',
+                'autonomie' => 'required',
+                'caractéristique' => 'required',
+                'prix' => 'required'
+            ]
+        );
+
+        $smartphone->nom = $request->nom;
+        $smartphone->taille = $request->taille;
+        $smartphone->type_réseau = $request->type_réseau;
+        $smartphone->système = $request->système;
+        $smartphone->connectique = $request->connectique;
+        $smartphone->autonomie = $request->autonomie;
+        $smartphone->caractéristique = $request->caractéristique;
+        $smartphone->prix = $request->prix;
+
+        $smartphone->save();
+
+        return redirect('/smartphones');
     }
 
     /**
@@ -109,6 +136,7 @@ class SmartphoneController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Smartphone::destroy($id);
+        return redirect('/smartphones');
     }
 }
