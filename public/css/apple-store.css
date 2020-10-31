@@ -9,3 +9,12 @@ footer{
     color: aliceblue;
     text-align: center;
 }
+
+.SmartphoneForm{
+    display: flex;
+    justify-content: center;
+}
+
+label{
+    margin-right: 15px;
+}
