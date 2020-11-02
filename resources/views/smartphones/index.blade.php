@@ -14,7 +14,6 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title"><a href="{{ route('smartphones.show', $smartphone->id) }}">{{ $smartphone->nom }}</a></h5>
-                                <p class="card-text">{{ $smartphone->caractéristique }}</p>
                                 <h4>{{ $smartphone-> prix }} €</h4>
                             </div>
                         </div>
