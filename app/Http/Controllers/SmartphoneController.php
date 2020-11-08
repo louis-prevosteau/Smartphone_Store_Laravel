@@ -134,9 +134,12 @@ class SmartphoneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        Smartphone::destroy($id);
-        return redirect('/smartphones');
+        if ($request->delete == 'valide') {
+            $smartphone = Smartphone::find($id);
+            $smartphone->delete();
+        }
+        return redirect()->route('smartphones.index');
     }
 }
