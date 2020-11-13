@@ -16,8 +16,7 @@
                 {{ csrf_field()}}
                 {{method_field('DELETE')}}
                 <div class="text-center">
-                    <button type="submit" name="delete" value="valide">Valide</button>
-                    <button type="submit" name="delete" value="annule">Annule</button>
+                    <button type="submit" name="delete" value="valide" class="btn btn-danger">Valide</button>
                 </div>
             </form>
         @else

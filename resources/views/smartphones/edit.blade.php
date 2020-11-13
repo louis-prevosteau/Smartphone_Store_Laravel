@@ -54,7 +54,9 @@
                 <input type="number" name="prix" id="prix" value="{{$smartphone->prix}}">
             </div>
             {{method_field('PUT')}}
-            <button class="btn btn-primary" type="submit">Modifier</button>
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Modifier</button>
+            </div>
         </form>
     </div>
 @endsection

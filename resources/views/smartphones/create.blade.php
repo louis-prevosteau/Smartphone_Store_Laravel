@@ -50,7 +50,9 @@
                 <label for="prix">Prix</label>
                 <input type="number" name="prix" id="prix" value="{{old('prix')}}">
             </div>
-            <button class="btn btn-primary" type="submit">Ajouter</button>
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Ajouter</button>
+            </div>
         </form>
     </div>
 @endsection
