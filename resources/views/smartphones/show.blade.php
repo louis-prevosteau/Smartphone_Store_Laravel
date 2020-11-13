@@ -1,13 +1,17 @@
-<html>
-    <head>
-        <title>{{$smartphone->nom}}</title>
-        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/apple-store.css') }}" rel="stylesheet">
-    </head>
-    <body>
-        @include('navbar')
-        
-        @if($action == 'delete')
+@extends('base.master')
+
+@if($action == 'delete')
+    <title>Supprimer {{$smartphone->nom}}</title>
+@else
+    <title>{{$smartphone->nom}}</title>
+@endif
+
+@section('navbar')
+    @parent
+@endsection
+
+@section('content')
+    @if($action == 'delete')
             <form action="{{route('smartphones.destroy',$smartphone->id)}}" method="POST">
                 {{ csrf_field()}}
                 {{method_field('DELETE')}}
@@ -28,6 +32,8 @@
             </div>
         </div>
         @endif
-        @include('footer')
-    </body>
-</html>
+@endsection
+
+@section('footer')
+    @parent
+@endsection
