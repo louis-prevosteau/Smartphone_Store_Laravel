@@ -20,11 +20,19 @@
                 </div>
                 <div class="form-group row">
                     <label for="type_réseau">Réseau</label>
-                    <input type="text" name="type_réseau" id="type_réseau" value="{{old('type_réseau')}}">
+                    <select name="type_réseau" id="type_réseau">
+                        <option>3G</option>
+                        <option>4G</option>
+                        <option>5G</option>
+                    </select>
                 </div>
                 <div class="form-group row">
                     <label for="système">Système d'exploitation</label>
-                    <input type="text" name="système" id="système" value="{{old('système')}}">
+                    <select name="système" id="système">
+                        <option>IOS</option>
+                        <option>MacOS</option>
+                        <option>WatchOS</option>
+                    </select>
                 </div>
                 <div class="form-group row">
                     <label for="connectique">Connectique</label>
@@ -36,7 +44,7 @@
                 </div>
                 <div class="form-group row">
                     <label for="caractéristique">Description</label>
-                    <textarea name="caractéristique" id="caractéristique" cols="30" rows="10" value="{{old('caractéristique')}}">Description</textarea>
+                    <textarea name="caractéristique" id="caractéristique" cols="30" rows="10" value="{{old('caractéristique')}}" placeholder="Description"></textarea>
                 </div>
                 <div class="form-group row">
                     <label for="prix">Prix</label>
