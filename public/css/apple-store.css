@@ -1,12 +1,7 @@
 body{
     background-color: rgb(226, 224, 224);
     padding-top: 70px;
-}
-
-.mynavbar{
-    width: 100%;
-    position: fixed;
-    top: 0;
+    padding-bottom: 70px;
 }
 
 footer{
