@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::resource('smartphones', 'SmartphoneController');
+Route::get('/search', 'SmartphoneController@search')->name('search');

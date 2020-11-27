@@ -6,6 +6,16 @@
 @endsection
 
 @section('content')
+    <div class="form-group">
+        <form action="{{route('search')}}" method="get" class="form-inline my-2 my-lg-0">
+            <div class="input-group">
+                <input type="search" name="search" class="form-control mr-sm-2" type="text" placeholder="Rechercher un produit..." style="width: 200px;">
+                <span class="input-group-prepend">
+                    <button type="submit" class="btn btn-primary my-2 my-sm-0">Rechercher</button>
+                </span>
+            </div>
+        </form>
+    </div>
     <h2>La liste des produits</h2>
     @if(!empty($smartphones))
         <div class="row">
