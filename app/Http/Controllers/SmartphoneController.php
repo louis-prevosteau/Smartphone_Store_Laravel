@@ -145,15 +145,8 @@ class SmartphoneController extends Controller
     }
 
     public function search(Request $request ){
-        $sys = $request->query('sys', 'All');
-        if ($sys != 'All'){
-            $smartphones = Smartphone::where('système',$sys)->orderBy('id', 'desc')->get();
-        } else{
-            $smartphones = Smartphone::orderBy('id', 'desc')->get();
-        }
-        $systems = Smartphone::distinct('système')->pluck('système');
         $search = $request->get('search');
         $smartphones = DB::table('smartphones')->where('nom','like','%'.$search.'%')->paginate(6);
-        return view('smartphones.index',['smartphones' => $smartphones, 'sys' => $sys, 'système' => $systems]);
+        return view('smartphones.index',['smartphones' => $smartphones]);
     }
 }
