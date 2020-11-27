@@ -20,3 +20,8 @@ footer{
 label{
     margin-right: 15px;
 }
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+}
