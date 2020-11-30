@@ -18,6 +18,14 @@
     </div>
     <h2>La liste des produits</h2>
     @if(!empty($smartphones))
+        <div class="row form-group container">
+            <h5 class="mr-lg-5">Filtrer par prix</h5>
+            <form action="{{route('smartphones.index')}}" method="get">
+                <input type="number" name="min" placeholder=0 class="mr-lg-5">
+                <input type="number" name="max" placeholder=9999 class="mr-lg-5">
+                <button type="submit" class="btn btn-warning my-2 my-sm-0">Filtrer</button>
+            </form>
+        </div>
         <div class="row">
             @foreach($smartphones as $smartphone)
                 <div class="col-lg-4 col-sm-6 mb-4">

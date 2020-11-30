@@ -13,10 +13,16 @@ class SmartphoneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $smartphones = Smartphone::all();
-        return view('smartphones.index', ['smartphones' => $smartphones]);   
+        $min = $request->query('min', 'All');
+        $max = $request->query('max', 'All');
+        if ($min != 'All' || $max != 'All'){
+            $smartphones = DB::table('smartphones')->whereBetween('prix',[$min, $max])->get();
+        }else{
+            $smartphones = Smartphone::all();
+        }
+        return view('smartphones.index', ['smartphones' => $smartphones, 'min' => $min, 'max' => $max]);   
     }
 
     /**
