@@ -19,3 +19,10 @@ Route::get('/', function () {
 
 Route::resource('smartphones', 'SmartphoneController');
 Route::get('/search', 'SmartphoneController@search')->name('search');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/apropos', 'HomeController@apropos')->name('apropos');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+
