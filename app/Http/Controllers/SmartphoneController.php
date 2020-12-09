@@ -155,4 +155,16 @@ class SmartphoneController extends Controller
         $smartphones = DB::table('smartphones')->where('nom','like','%'.$search.'%')->paginate(6);
         return view('smartphones.index',['smartphones' => $smartphones]);
     }
+
+    public function delete(Request $request, $smartphone) {
+        if (Gate::denies('delete-sma$smartphone', $smartphone)) {
+            return redirect()->route('sma$smartphones.show', ['data' => $smartphone, 'action' => 'show'])->with('status', 'Impossible de supprimer la tâche');
+        }
+
+        // vérifications autres
+
+        $smartphone->delete();
+
+        return redirect()->route('sma$smartphones.index', ['sma$smartphones' => $smartphones])->with('status', 'Tâche supprimée avec succès');
+    }
 }

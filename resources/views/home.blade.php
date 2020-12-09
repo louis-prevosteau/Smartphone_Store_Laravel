@@ -15,6 +15,9 @@
                     @endif
 
                     You are logged in!
+                    <a href="{{route('smartphones.index')}}">Apple Store</a>
+                    <a href="{{route('apropos')}}">A Propos</a>
+                    <a href="{{route('contact')}}">Contact</a>
                 </div>
             </div>
         </div>

@@ -25,6 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('delete-smartphone', function ($user, $smartphone) {
+            return $user->id === $smartphone->user_id;
+        });
     }
 }

@@ -23,6 +23,8 @@ class CreateSmartphonesTable extends Migration
             $table->string('autonomie',50);
             $table->string('caractéristique',100);
             $table->integer('prix',10);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
