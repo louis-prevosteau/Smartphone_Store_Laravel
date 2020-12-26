@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->resource('smartphones', 'SmartphoneController');
+Route::middleware('auth')->resource('applications', 'ApplicationController');
 Route::get('/search', 'SmartphoneController@search')->name('search');
 
 Auth::routes();

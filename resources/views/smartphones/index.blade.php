@@ -11,7 +11,7 @@
             <div class="input-group">
                 <input type="search" name="search" class="form-control mr-lg-5" type="text" placeholder="Rechercher un produit..." style="width: 500px;">
                 <span class="input-group-prepend">
-                    <button type="submit" class="btn btn-primary my-2 my-sm-0">Rechercher</button>
+                    <button type="submit" class="btn btn-primary my-2 my-sm-0"><i class="fas fa-search"></i></button>
                 </span>
             </div>
         </form>

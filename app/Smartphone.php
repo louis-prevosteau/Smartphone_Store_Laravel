@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\user;
+use App\User;
+use App\Application;
 
 class Smartphone extends Model
 {
@@ -11,5 +12,11 @@ class Smartphone extends Model
 
     function users(){
         return $this->belongsTo(User::class);
+    }
+
+    function applications() {
+        return $this->belongsToMany(Application::class, 'version')
+            ->as('version')
+            ->withPivot('numero', 'date_sortie');
     }
 }
