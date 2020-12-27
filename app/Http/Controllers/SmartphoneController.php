@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Smartphone;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cookie;
 
 class SmartphoneController extends Controller
 {
@@ -17,12 +18,34 @@ class SmartphoneController extends Controller
     {
         $min = $request->query('min', 'All');
         $max = $request->query('max', 'All');
-        if ($min != 'All' || $max != 'All'){
-            $smartphones = DB::table('smartphones')->whereBetween('prix',[$min, $max])->get();
-        }else{
-            $smartphones = Smartphone::all();
+        $os = $request->query('os', 'All');
+        $value = $request->cookie('os','All');
+        if (!isset($os)){
+            if ($value == 'All'){
+                $smartphones = Smartphone::where('système',$value)->get();
+                $os = $value;
+                Cookie::queue('os',$os,10,'/smartphones');
+            } else {
+                $smartphones = Smartphone::all();
+                $os = 'All';
+                Cookie::queue('os',$os,10,'/smartphones');
+            }
+        } else {
+            if ($min != 'All' || $max != 'All'){
+                $smartphones = DB::table('smartphones')->whereBetween('prix',[$min, $max])->get();
+                Cookie::queue('os',$os,10,'/smartphones');
+            }
+            elseif ($os != 'All'){
+                $smartphones = Smartphone::where('système',$os)->get();
+                Cookie::queue('os',$os,10,'/smartphones');
+            }
+            else{
+                $smartphones = Smartphone::all();
+                Cookie::queue('os',$os,10,'/smartphones');
+            }
         }
-        return view('smartphones.index', ['smartphones' => $smartphones, 'min' => $min, 'max' => $max]);   
+        $systems = Smartphone::distinct('système')->pluck('système');
+        return view('smartphones.index', ['smartphones' => $smartphones, 'min' => $min, 'max' => $max, 'os' => $os, 'systems' => $systems]);   
     }
 
     /**

@@ -26,6 +26,18 @@
                 <button type="submit" class="btn btn-warning my-2 my-sm-0">Filtrer</button>
             </form>
         </div>
+        <div class="row form-group container">
+            <h5 class="mr-lg-5">Filtrer par OS</h5>
+            <form action="{{route('smartphones.index')}}" method="get">
+                <select name="os">
+                    <option value="All" @if($os == 'All') selected @endif>-- Tous --</option>
+                    @foreach($systems as $sys)
+                        <option value="{{$sys}}" @if($os == $sys) selected @endif>{{$sys}}</option>
+                    @endforeach
+                </select>
+                <button type="submit" class="btn btn-warning my-2 my-sm-0">Filtrer</button>
+            </form>
+        </div>
         <div class="row">
             @foreach($smartphones as $smartphone)
                 <div class="col-lg-4 col-sm-6 mb-4">
