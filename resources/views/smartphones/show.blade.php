@@ -27,6 +27,9 @@
                 <h5>Taille : {{ $smartphone->taille }}</h5>
                 <h5>Autonomie : {{ $smartphone->autonomie }}</h5>
                 <h1>{{ $smartphone->prix }} €</h1>
+                @if ( $smartphone->en_vente == 1)
+                    <p class="card-txt text-success font-weight-bold">Disponible</p>
+                @endif
                 <a href="{{ route('smartphones.edit',$smartphone->id) }}">Editer</a>
             </div>
         </div>

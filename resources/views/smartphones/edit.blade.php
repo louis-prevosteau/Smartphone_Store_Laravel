@@ -73,6 +73,21 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group row">
+                        <label for="en_vente">Disponible</label>
+                        <label class="radio-inline"><input type="radio" name="en_vente" value="1">Oui</label>
+                        <label class="radio-inline"><input type="radio" name="en_vente" value="0">Non</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group row">
+                        <label for="url_media">Image : </label>
+                        <input class="rounded" type="text" id="url_media" name="url_media" value="{{$smartphone->url_media}}">
+                    </div>
+                </div>
+            </div>
             {{method_field('PUT')}}
             <div class="text-center">
                 <button class="btn btn-primary" type="submit">Modifier</button>

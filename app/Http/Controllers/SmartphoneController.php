@@ -76,7 +76,9 @@ class SmartphoneController extends Controller
                 'connectique' => 'required',
                 'autonomie' => 'required',
                 'caractéristique' => 'required',
-                'prix' => 'required'
+                'prix' => 'required',
+                'en_vete' => 'required',
+                'url_media' => 'required'
             ]
         );
 
@@ -89,6 +91,8 @@ class SmartphoneController extends Controller
         $smartphone->autonomie = $request->autonomie;
         $smartphone->caractéristique = $request->caractéristique;
         $smartphone->prix = $request->prix;
+        $smartphone->en_vente = $request->get('en_vente');
+        $smartphone->url_media = $request->get('url_media','images/smartphone.jpg');
 
         $smartphone->save();
 
@@ -140,7 +144,9 @@ class SmartphoneController extends Controller
                 'connectique' => 'required',
                 'autonomie' => 'required',
                 'caractéristique' => 'required',
-                'prix' => 'required'
+                'prix' => 'required',
+                'en_vente' => 'required',
+                'url_media' => 'required'
             ]
         );
 
@@ -152,6 +158,8 @@ class SmartphoneController extends Controller
         $smartphone->autonomie = $request->autonomie;
         $smartphone->caractéristique = $request->caractéristique;
         $smartphone->prix = $request->prix;
+        $smartphone->en_vente = $request->get('en_vente');
+        $smartphone->url_media = $request->get('url_media','images/smartphone.jpg');
 
         $smartphone->save();
 

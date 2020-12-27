@@ -70,6 +70,21 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group row">
+                        <label for="en_vente">Disponible</label>
+                        <label class="radio-inline"><input type="radio" name="en_vente" value="true">Oui</label>
+                        <label class="radio-inline"><input type="radio" name="en_vente" value="false">Non</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group row">
+                        <label for="url_media">Image : </label>
+                        <input class="rounded" type="text" id="url_media" name="url_media" placeholder="Image smartphone">
+                    </div>
+                </div>
+            </div>
             <div class="text-center">
                 <button class="btn btn-primary" type="submit">Ajouter</button>
             </div>
