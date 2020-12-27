@@ -9,6 +9,9 @@
         @section('navbar')
             @include('base.navbar')
         @show
+        @if(session('msg'))
+            <x-information :type="session('type')" :message="session('msg')"></x-information>
+        @endif
         @yield('content')
         @section('footer')
             @include('base.footer')

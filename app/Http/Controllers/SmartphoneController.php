@@ -96,7 +96,7 @@ class SmartphoneController extends Controller
 
         $smartphone->save();
 
-        return redirect('/smartphones');
+        return redirect('/smartphones')->with('type', 'primary')->with('msg', 'Smartphone ajouté avec succès');
     }
 
     /**
@@ -178,7 +178,7 @@ class SmartphoneController extends Controller
             $smartphone = Smartphone::find($id);
             $smartphone->delete();
         }
-        return redirect()->route('smartphones.index');
+        return redirect()->route('smartphones.index')->with('type', 'primary')->with('msg', 'Smartphone modifié avec succès');
     }
 
     public function search(Request $request ){
@@ -188,8 +188,8 @@ class SmartphoneController extends Controller
     }
 
     public function delete(Request $request, $smartphone) {
-        if (Gate::denies('delete-sma$smartphone', $smartphone)) {
-            return redirect()->route('sma$smartphones.show', ['data' => $smartphone, 'action' => 'show'])->with('status', 'Impossible de supprimer la tâche');
+        if (Gate::denies('delete-smartphone', $smartphone)) {
+            return redirect()->route('smartphones.show', ['data' => $smartphone, 'action' => 'show'])->with('status', 'Impossible de supprimer la tâche');
         }
 
         // vérifications autres
