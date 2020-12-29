@@ -77,8 +77,8 @@ class SmartphoneController extends Controller
                 'autonomie' => 'required',
                 'caractéristique' => 'required',
                 'prix' => 'required',
-                'en_vete' => 'required',
-                'url_media' => 'required'
+                'en_vente' => 'required',
+                'image' => 'required'
             ]
         );
 
@@ -92,7 +92,7 @@ class SmartphoneController extends Controller
         $smartphone->caractéristique = $request->caractéristique;
         $smartphone->prix = $request->prix;
         $smartphone->en_vente = $request->get('en_vente');
-        $smartphone->url_media = $request->get('url_media','images/smartphone.jpg');
+        $smartphone->image = $request->image;
 
         $smartphone->save();
 
@@ -146,7 +146,7 @@ class SmartphoneController extends Controller
                 'caractéristique' => 'required',
                 'prix' => 'required',
                 'en_vente' => 'required',
-                'url_media' => 'required'
+                'image' => 'required'
             ]
         );
 
@@ -159,7 +159,7 @@ class SmartphoneController extends Controller
         $smartphone->caractéristique = $request->caractéristique;
         $smartphone->prix = $request->prix;
         $smartphone->en_vente = $request->get('en_vente');
-        $smartphone->url_media = $request->get('url_media','images/smartphone.jpg');
+        $smartphone->image = $request->image;
 
         $smartphone->save();
 
@@ -178,7 +178,7 @@ class SmartphoneController extends Controller
             $smartphone = Smartphone::find($id);
             $smartphone->delete();
         }
-        return redirect()->route('smartphones.index')->with('type', 'primary')->with('msg', 'Smartphone modifié avec succès');
+        return redirect()->route('smartphones.index');
     }
 
     public function search(Request $request ){
@@ -196,6 +196,6 @@ class SmartphoneController extends Controller
 
         $smartphone->delete();
 
-        return redirect()->route('sma$smartphones.index', ['sma$smartphones' => $smartphones])->with('status', 'Tâche supprimée avec succès');
+        return redirect()->route('smartphones.index', ['smartphones' => $smartphones])->with('status', 'Tâche supprimée avec succès');
     }
 }

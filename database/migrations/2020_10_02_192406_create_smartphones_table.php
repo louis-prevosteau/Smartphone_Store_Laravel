@@ -24,7 +24,7 @@ class CreateSmartphonesTable extends Migration
             $table->string('caractéristique',100);
             $table->integer('prix',10);
             $table->boolean('en_vente');
-            $table->string('url_media',100)->nullable();
+            $table->string('image',300)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

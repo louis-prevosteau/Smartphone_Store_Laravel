@@ -21,16 +21,23 @@
             </form>
         @else
         <div class="card">
+            @if($smartphone->image != null)
+                <img src="{{$smartphone->image}}" alt="" class="card-img-top" height="400">
+            @endif
             <div class="card-body">
-                <h1 class="card-title">{{ $smartphone->nom }}</h1>
+                <div class="row">
+                    <h1 class="card-title col">{{ $smartphone->nom }}</h1>
+                    <a href="{{ route('smartphones.edit',$smartphone->id) }}" class="col">Editer</a>
+                </div>
                 <p class="card-text">{{ $smartphone->caractéristique }}</p>
                 <h5>Taille : {{ $smartphone->taille }}</h5>
                 <h5>Autonomie : {{ $smartphone->autonomie }}</h5>
                 <h1>{{ $smartphone->prix }} €</h1>
                 @if ( $smartphone->en_vente == 1)
                     <p class="card-txt text-success font-weight-bold">Disponible</p>
+                @else
+                    <p class="card-txt text-danger font-weight-bold">Indisponible</p>
                 @endif
-                <a href="{{ route('smartphones.edit',$smartphone->id) }}">Editer</a>
             </div>
         </div>
         @endif

@@ -42,6 +42,9 @@
             @foreach($smartphones as $smartphone)
                 <div class="col-lg-4 col-sm-6 mb-4">
                     <div class="card">
+                        @if($smartphone->image != null)
+                            <img src="{{$smartphone->image}}" alt="" class="card-img-top" height="260">
+                        @endif
                         <div class="card-body">
                             <h5 class="card-title"><a href="{{ route('smartphones.show', $smartphone->id) }}">{{ $smartphone->nom }}</a></h5>
                             <h4>{{ $smartphone-> prix }} €</h4>

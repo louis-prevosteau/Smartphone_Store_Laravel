@@ -83,8 +83,8 @@
                 </div>
                 <div class="col">
                     <div class="form-group row">
-                        <label for="url_media">Image : </label>
-                        <input class="rounded" type="text" id="url_media" name="url_media" value="{{$smartphone->url_media}}">
+                        <label for="image">Image : </label>
+                        <textarea name="image" id="image" cols="30" rows="10" value="{{$smartphone->image}}" class="rounded">{{$smartphone->image}}</textarea>
                     </div>
                 </div>
             </div>

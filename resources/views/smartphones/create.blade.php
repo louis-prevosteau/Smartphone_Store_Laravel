@@ -80,8 +80,8 @@
                 </div>
                 <div class="col">
                     <div class="form-group row">
-                        <label for="url_media">Image : </label>
-                        <input class="rounded" type="text" id="url_media" name="url_media" placeholder="Image smartphone">
+                        <label for="image">Image : </label>
+                        <textarea name="image" id="image" cols="30" rows="10" value="{{old('image')}}" placeholder="Url de l'image" class="rounded"></textarea>
                     </div>
                 </div>
             </div>
